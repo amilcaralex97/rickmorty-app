@@ -1,0 +1,1 @@
+export const NAVBAR_CHANGE = "NAVBAR_CHANGE";
