@@ -13,11 +13,7 @@ const Navlinks = (props) => {
           Characters
         </Link>
       </li>
-      <li>
-        <Link to="/about" className="link" tabIndex={tempTabIndex}>
-          Create Character
-        </Link>
-      </li>
+
       <li>
         <Link to="/contact" className="link" tabIndex={tempTabIndex}>
           Contact
