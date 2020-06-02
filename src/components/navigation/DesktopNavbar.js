@@ -20,6 +20,7 @@ const MyDesktopNavbar = styled.nav`
   box-shadow: 0 10px 5px ${(props) => props.theme.accent};
 
   .logo {
+    color: #7bdff2;
     font-size: 7vh;
     text-shadow: 3px 3px 3px ${(props) => props.theme.accent};
   }
@@ -85,7 +86,7 @@ const MyMobileNavButton = styled.button`
   transform: rotate(
     ${(props) => (props.displayMobileNavbar ? "180deg" : "0deg")}
   );
-  ${(props) => console.log(props)}
+
   @media screen and (min-width: 758px) {
     display: none;
   }
@@ -95,7 +96,7 @@ const DesktopNavbar = (props) => {
   const { toggleMobileNavbar, displayMobileNavbar } = props;
   return (
     <MyDesktopNavbar>
-      <div className="logo">Logo</div>
+      <div className="logo">Rick&Morty</div>
       <Navlinks />
       <MyMobileNavButton
         myMobileNavButton={displayMobileNavbar}
