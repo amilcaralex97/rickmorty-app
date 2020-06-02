@@ -5,23 +5,6 @@ import {
   FETCH_CHARACTERS_ERROR,
 } from "../types/charactersTypes";
 
-export const fetchCharacters = () => {
-  return async (dispatch) => {
-    try {
-      dispatch(fetchCharactersPending());
-      const res = await axios.get(
-        "https://rickandmortyapi.com/api/character/1,10"
-      );
-      if (res.error) {
-        throw res.error;
-      }
-      dispatch(fetchCharactersSuccess(res));
-    } catch (error) {
-      dispatch(fetchCharactersError(error));
-    }
-  };
-};
-
 export const fetchCharactersPending = () => {
   return {
     type: FETCH_CHARACTERS_PENDING,
@@ -31,13 +14,28 @@ export const fetchCharactersPending = () => {
 export const fetchCharactersSuccess = (characters) => {
   return {
     type: FETCH_CHARACTERS_SUCCESS,
-    characters,
+    payload: characters,
   };
 };
 
 export const fetchCharactersError = (error) => {
   return {
     type: FETCH_CHARACTERS_ERROR,
-    error,
+    payload: error,
+  };
+};
+
+export const fetchCharacters = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(fetchCharactersPending());
+      const res = await axios.get(
+        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10"
+      );
+      const characters = res.data;
+      dispatch(fetchCharactersSuccess(characters));
+    } catch (error) {
+      dispatch(fetchCharactersError(error));
+    }
   };
 };
