@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.card-position {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 150px;
+  left: 100px;
+}
+
+.banner-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.absolute-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+}
+
+.card-style {
+  width: 18rem;
+}
+
+.card {
+  background-color: #7bdff2;
+}
+
+.btn-primary {
+  background-color: #a17fe0;
+  border-color: #a17fe0;
+  color: #fff;
+}
