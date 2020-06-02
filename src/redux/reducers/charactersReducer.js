@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   characters: [],
-  error: null,
+  error: "",
   pending: false,
 };
 
@@ -19,17 +19,19 @@ const charactersReducer = (state = { ...initialState }, action) => {
       };
     case FETCH_CHARACTERS_SUCCESS:
       return {
-        ...state,
+        error: "",
         pending: false,
         characters: action.payload,
       };
     case FETCH_CHARACTERS_ERROR:
       return {
-        ...state,
         pending: false,
-        error: action.error,
+        users: [],
+        error: action.payload,
       };
     default:
       return state;
   }
 };
+
+export default charactersReducer;
