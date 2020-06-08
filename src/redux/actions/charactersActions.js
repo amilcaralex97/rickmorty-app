@@ -3,6 +3,7 @@ import {
   FETCH_CHARACTERS_PENDING,
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_ERROR,
+  FILTER_BY_VALUE,
 } from "../types/charactersTypes";
 
 export const fetchCharactersPending = () => {
@@ -22,6 +23,13 @@ export const fetchCharactersError = (error) => {
   return {
     type: FETCH_CHARACTERS_ERROR,
     payload: error,
+  };
+};
+
+export const filterCharacters = (value) => {
+  return {
+    type: FILTER_BY_VALUE,
+    payload: value,
   };
 };
 
