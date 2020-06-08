@@ -7,7 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Navbar from "./components/navigation/Navbar";
-import CharactersList from "./components/CharactersList";
+import CharactersList from "./components/characters/CharactersList";
+import Character from "./components/characters/Character";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Route exact path="/" component={CharactersList} />
+        <Route path="/character/:id" component={Character} />
       </BrowserRouter>
     </Provider>
   );
