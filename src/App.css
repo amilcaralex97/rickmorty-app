@@ -54,7 +54,7 @@
 .absolute-wrapper {
   position: absolute;
   width: 100%;
-  top: 30%;
+  top: 20%;
 }
 
 .card-style {
@@ -69,4 +69,8 @@
   background-color: #a17fe0;
   border-color: #a17fe0;
   color: #fff;
+}
+
+.jumbotron {
+  background-color: #7bdff2;
 }
