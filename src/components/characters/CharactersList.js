@@ -50,7 +50,7 @@ export class CharactersList extends Component {
               <div className="row">
                 {filteredCharacters.map((character) => (
                   <div
-                    className="card card-style col-12 col-sm-12 col-md-5 col-lg-2 mx-4 mb-5"
+                    className="card card-style col-12 col-sm-12 col-md-5 col-lg-2 mx-md-4 mx-lg-4 mx-lg-4 mx-xl-4 mb-5"
                     key={character.id}
                   >
                     <img
