@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import _ from "lodash";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -8,11 +7,6 @@ import {
 } from "../../redux/actions/charactersActions";
 
 export class CharactersList extends Component {
-  state = {
-    searchTerm: "",
-    currentDisplayed: this.props.charcaters,
-  };
-
   componentDidMount() {
     const { fetchCharacters } = this.props;
     fetchCharacters();
@@ -24,7 +18,7 @@ export class CharactersList extends Component {
   };
 
   render() {
-    const { characters, pending } = this.props;
+    const { pending, filteredCharacters } = this.props;
     return (
       <div className="absolute-wrapper">
         <div className="banner-wrapper">
@@ -54,7 +48,7 @@ export class CharactersList extends Component {
               </div>
             ) : (
               <div className="row">
-                {characters.map((character) => (
+                {filteredCharacters.map((character) => (
                   <div
                     className="card card-style col-12 col-sm-12 col-md-5 col-lg-2 mx-4 mb-5"
                     key={character.id}
@@ -87,11 +81,18 @@ export class CharactersList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("CharctersLisrt", state.charactersReducer.characters);
+  console.log("CharctersList", state.charactersReducer.filteredCharacters);
+  const {
+    characters,
+    error,
+    pending,
+    filteredCharacters,
+  } = state.charactersReducer;
   return {
-    characters: state.charactersReducer.characters,
-    error: state.charactersReducer.error,
-    pending: state.charactersReducer.pending,
+    characters: characters,
+    error: error,
+    pending: pending,
+    filteredCharacters,
   };
 };
 

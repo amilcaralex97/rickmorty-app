@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   characters: [],
+  filteredCharacters: [],
   error: "",
   pending: false,
 };
@@ -23,6 +24,7 @@ const charactersReducer = (state = { ...initialState }, action) => {
         error: "",
         pending: false,
         characters: action.payload,
+        filteredCharacters: action.payload,
       };
     case FETCH_CHARACTERS_ERROR:
       return {
@@ -31,17 +33,13 @@ const charactersReducer = (state = { ...initialState }, action) => {
         error: action.payload,
       };
     case FILTER_BY_VALUE:
-      let newState = Object.assign({}, state);
-
-      let value = action.payload.value;
-      let filteredValues = state.characters.filter((character) => {
-        return character.name.toLowerCase().includes(value);
+      let value = action.payload.value.toLowerCase();
+      let filteredList = state.characters.filter((character) => {
+        return character.name.toLowerCase().indexOf(value) > -1;
       });
-
-      let appliedFilters = state.appliedFilters;
       return {
         ...state,
-        characters: filteredValues,
+        filteredCharacters: filteredList,
       };
     default:
       return state;
