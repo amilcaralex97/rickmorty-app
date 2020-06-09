@@ -10,8 +10,9 @@ const MyMobileNavbar = styled.nav`
   margin-bottom: 15px;
 
   box-shadow: -10px 10px 5px ${(props) => props.theme.accent};
-
+  position: relative;
   margin-left: auto;
+  z-index: 2000;
 
   transition: transform 1s;
   transform: translateX(
@@ -23,7 +24,6 @@ const MyMobileNavbar = styled.nav`
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
-
     height: 60vh;
 
     list-style: none;

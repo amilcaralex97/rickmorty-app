@@ -15,9 +15,13 @@ const Navlinks = (props) => {
       </li>
 
       <li>
-        <Link to="/contact" className="link" tabIndex={tempTabIndex}>
+        <a
+          href="https://www.linkedin.com/in/amilcaralex97"
+          className="link"
+          tabIndex={tempTabIndex}
+        >
           Contact
-        </Link>
+        </a>
       </li>
     </ul>
   );
